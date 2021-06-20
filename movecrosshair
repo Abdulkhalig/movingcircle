@@ -1,0 +1,78 @@
+import turtle 
+
+
+
+wn = turtle.Screen()
+wn.title('Moving circle')
+
+
+# the sun
+tut = turtle.Turtle()
+
+wn.register_shape('assets/cross.gif')
+
+tut.penup()
+tut.speed(0)
+tut.shape('assets/cross.gif')
+
+x = tut.xcor()
+y = tut.ycor()
+
+
+def moveleft():
+    y = tut.ycor()
+    x = tut.xcor()
+    x -= 10
+    tut.setx(x)
+    
+    if x == -470:
+        tut.goto(-460,y)
+
+
+def moveright():
+    y = tut.ycor()
+    x = tut.xcor()
+    x += 10
+    tut.setx(x)
+    
+    if x == 470:
+        tut.goto(460,y)
+
+def moveup():
+    x = tut.xcor()
+    y = tut.ycor()
+    y += 10
+    tut.sety(y)
+    if y == 390:
+        tut.goto(x,380)
+    
+def movedown():
+    x = tut.xcor()
+    y = tut.ycor()
+    y -= 10
+    tut.sety(y)
+    if y == -390:
+        tut.goto(x,-380)
+
+
+
+
+
+
+wn.listen()
+wn.onkeypress(moveleft, "Left")
+wn.onkeypress(moveright, "Right")
+wn.onkeypress(moveup, "Up")
+wn.onkeypress(movedown, "Down")
+
+
+
+
+
+
+
+
+
+
+
+wn.mainloop()
